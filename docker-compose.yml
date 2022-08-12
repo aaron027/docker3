@@ -1,22 +1,15 @@
 version: '3'
 services:
-  console-helloworld:
-    image: jr/console-helloworld
-    build: ../dockerfile/1.console-helloworld
+  helloworld:
+    image: adrien027/helloworld:1.0
   web-nginx:
-    image: jr/web-helloworld
-    build: ../dockerfile/2.web-nginx
+    image: adrien027/web-ngix:1.0
     ports:
-    - "8080:80"
-  web-python-flask:
-    image: jr/web-citymatcher
-    build: ../dockerfile/3.web-python-flask
+    - "5001:80"
+  cat:
+    image: adrien027/cat:1.0
     ports:
-    - "80:80"
-  console-dependency:
-    image: jr/console-citymatcher
-    build: ../dockerfile/4.console-dependency
-    links:
-    - web-python-flask:citymatcher
-    depends_on:
-    - web-python-flask
+    - "5000:5000"
+  
+
+
